@@ -1,0 +1,1 @@
+# scss-lint-html-reporter
