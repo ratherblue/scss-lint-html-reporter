@@ -5,7 +5,7 @@
 
 'use strict';
 
-require('shelljs/global');
+var shell = require('shelljs');
 var fs = require('fs');
 //var path = require('path');
 //var handlebars = require('handlebars');
@@ -25,7 +25,7 @@ var unescapeStr = function(str) {
     .replace(/\r/g, '');
 };
 
-var result = exec('scss-lint . -f JSON');
+var result = shell.exec('scss-lint . -f JSON');
 
 var output = JSON.parse(unescapeStr(result.output));
 
@@ -41,7 +41,6 @@ for (var obj in output) {
     if (msg.severity === 'error') {
       messageList.push('line ' + msg.line + ', col ' + msg.column + ', ' + msg.reason);
     }
-    //console.log(msg.linter);
   }
 
   if (messageList.length) {
@@ -49,7 +48,6 @@ for (var obj in output) {
   }
 
   ciUtil.testEnd(obj, 'teamCity');
-  //console.log('obj', obj);
 }
 
 
@@ -57,4 +55,4 @@ ciUtil.reportEnd('teamCity');
 
 //console.log(typeof JSON.stringify(JSON.parse(output)));
 
-fs.writeFile('foo.json', hbsUtil.applyTemplates({ myObject: output }));
+fs.writeFile('scss-lint-report.html', hbsUtil.applyTemplates({ myObject: output }));

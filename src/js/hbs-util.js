@@ -119,6 +119,14 @@ exports.registerHelpers = function() {
 */
 exports.applyTemplates = function(data) {
 
+  handlebars.registerHelper('toLowerCase', function(context, options) {
+    if (typeof context !== 'undefined') {
+      return context.toLowerCase();
+    } else {
+      return '';
+    }
+  });
+
   var overview = fs.readFileSync(path.join(__dirname, '..', 'templates', 'reporter.hbs'),
     { encoding: 'utf-8' }
   );

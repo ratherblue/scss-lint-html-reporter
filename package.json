@@ -29,6 +29,7 @@
   },
   "homepage": "https://github.com/edendramis/scss-lint-html-reporter",
   "dependencies": {
-    "handlebars": "^3.0.1"
+    "handlebars": "^3.0.1",
+    "shelljs": "^0.4.0"
   }
 }

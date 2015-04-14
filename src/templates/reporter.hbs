@@ -2,14 +2,72 @@
 <head>
   <meta charset="utf-8">
   <title>SCSS Lint Report</title>
+  <style type="text/css">
+    html {
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      font-size: 13px;
+      height: 100%;
+    }
+
+    body {
+      margin: 0;
+      height: 100%;
+    }
+
+    .page-wrapper {
+      padding: 15px 30px;
+    }
+
+    table {
+      border-collapse: collapse;
+      border-spacing: 0;
+      font-size: 13px;
+    }
+
+    td {
+      padding: 3px 6px;
+    }
+
+    .file td {
+      background-color: #eee;
+    }
+
+    .warning {
+      color: #f90;
+    }
+
+    .error {
+      color: #900;
+    }
+
+    .details.last td {
+      padding-bottom: 18px;
+    }
+
+  </style>
 </head>
 <body>
-
-  {{#each myObject}}
-      Key: {{@key}}
-      {{#each this}}
-        {{severity}}<br> {{{reason}}}<br>
-      {{/each}}
-  {{/each}}
+  <div class="page-wrapper">
+    <h1>SCSS Lint Report</h1>
+    <table>
+      <tbody>
+        {{#each myObject}}
+          <tr class="file">
+            <td colspan="4">{{@key}}</td>
+          </tr>
+          {{#each this}}
+            <tr class="details {{#if @last}} last{{/if}}">
+              <td>{{line}}:{{column}}</td>
+              <td class="{{severity}}">{{severity}}</td>
+              <td>{{{reason}}}</td>
+              <td>
+                <a href="https://github.com/brigade/scss-lint/blob/master/lib/scss_lint/linter/README.md#{{#toLowerCase linter}}{{/toLowerCase}}">{{linter}}</a>
+              </td>
+            </tr>
+          {{/each}}
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
 </body>
 </html>
