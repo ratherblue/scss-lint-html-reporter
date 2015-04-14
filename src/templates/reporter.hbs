@@ -1,0 +1,15 @@
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>SCSS Lint Report</title>
+</head>
+<body>
+
+  {{#each myObject}}
+      Key: {{@key}}
+      {{#each this}}
+        {{severity}}<br> {{{reason}}}<br>
+      {{/each}}
+  {{/each}}
+</body>
+</html>
