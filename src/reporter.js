@@ -23,9 +23,11 @@ var unescapeStr = function(str) {
     .replace(/\r/g, '');
 };
 
-var result = shell.exec('scss-lint --config .scss-lint.yml -f JSON -o temp-data.json');
+var fileLoc = path.join(__dirname, 'temp-data.json');
 
-var jsonFle = fs.readFileSync(path.join(__dirname, 'temp-data.json'), { encoding: 'utf-8' });
+var result = shell.exec('scss-lint --config .scss-lint.yml -f JSON -o ' + fileLoc);
+
+var jsonFile = fs.readFileSync(fileLoc, { encoding: 'utf-8' });
 
 var output = JSON.parse(unescapeStr(jsonFile));
 
