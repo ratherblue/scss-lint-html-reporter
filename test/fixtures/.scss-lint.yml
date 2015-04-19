@@ -1,0 +1,10 @@
+linters:
+  Indentation:
+    enabled: true
+    width: 4
+  DuplicateProperty:
+    enabled: true
+    severity: error
+  EmptyRule:
+    enabled: true
+    severity: error

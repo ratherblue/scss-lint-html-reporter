@@ -4,7 +4,6 @@
   "description": "",
   "main": "./src/index.js",
   "scripts": {
-    "whatever": "./src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -13,7 +12,7 @@
   },
   "keywords": [
     "scss",
-    "teamcity",
+    "team city",
     "lint"
   ],
   "author": {
@@ -29,7 +28,7 @@
   },
   "homepage": "https://github.com/edendramis/scss-lint-html-reporter",
   "dependencies": {
-    "handlebars": "^3.0.1",
-    "shelljs": "^0.4.0"
+    "hairballs": "0.0.4",
+    "handlebars": "^3.0.1"
   }
 }
