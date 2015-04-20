@@ -14,8 +14,7 @@ process.stdin.on('data', function(chunk) {
   input += chunk;
 });
 
-process.stdin.on('end', function(foo) {
-  console.log(foo);
+process.stdin.on('end', function() {
   var lintReporter = new LintReporter(input);
 
   var data = lintReporter.runReport();
