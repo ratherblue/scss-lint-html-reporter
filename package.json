@@ -1,7 +1,7 @@
 {
   "name": "scss-lint-html-reporter",
   "version": "0.0.3",
-  "description": "",
+  "description": "SCSS Lint HTML Reporter with optional TeamCity integration",
   "main": "./src/index.js",
   "bin": "./bin/reporter.js",
   "scripts": {
@@ -29,7 +29,7 @@
   },
   "homepage": "https://github.com/edendramis/scss-lint-html-reporter",
   "dependencies": {
-    "hairballs": "0.0.4",
+    "hairballs": "0.0.5",
     "handlebars": "^3.0.1"
   }
 }
