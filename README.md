@@ -40,7 +40,7 @@ To use this package you must first run SCSS Lint with the **JSON Formatter** and
 Examples:
 
 ```sh
-scss-lint -f JSON | node node_modules/scss-lint-html-reporterbin/reporter.js
+scss-lint -f JSON | node node_modules/scss-lint-html-reporter/bin/reporter.js
 
 ```
 
