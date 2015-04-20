@@ -40,7 +40,7 @@ To use this package you must first run SCSS Lint with the **JSON Formatter** and
 Examples:
 
 ```sh
-scss-lint -f JSON | node_modules/scss-lint-html-reporter
+scss-lint -f JSON | node node_modules/scss-lint-html-reporter
 
 ```
 
@@ -51,7 +51,7 @@ scss-lint -f JSON | node_modules/scss-lint-html-reporter
 Specify the output of the HTML report. (Defaults to `scss-lint-report.html`)
 
 ```sh
-scss-lint -f JSON | node_modules/scss-lint-html-reporter -o my-report.html
+scss-lint -f JSON | node node_modules/scss-lint-html-reporter -o my-report.html
 
 ```
 
@@ -61,7 +61,7 @@ scss-lint -f JSON | node_modules/scss-lint-html-reporter -o my-report.html
 Turns off detailed output.
 
 ```sh
-scss-lint -f JSON | node_modules/scss-lint-html-reporter --lite
+scss-lint -f JSON | node node_modules/scss-lint-html-reporter --lite
 
 ```
 
@@ -72,23 +72,23 @@ Enables TeamCity output
 Example:
 
 ```sh
-scss-lint -f JSON | node_modules/scss-lint-html-reporter --teamcity
+scss-lint -f JSON | node node_modules/scss-lint-html-reporter --teamcity
 
 ```
 
 With "lite" html file:
 
 ```sh
-scss-lint -f JSON | node_modules/scss-lint-html-reporter --teamcity --lite
+scss-lint -f JSON | node node_modules/scss-lint-html-reporter --teamcity --lite
 
 ```
 
 **--nohtml**
 
-Disables generation of the html file. (Note: If you don't have the `--teamcity` option, running the linter will do nothing.)
+Disables generation of the html file. (Note: If you add this option but don't have the `--teamcity` option, running the linter will do nothing.)
 
 Example:
 
 ```sh
-scss-lint -f JSON | node_modules/scss-lint-html-reporter --nohtml --teamcity
+scss-lint -f JSON | node node_modules/scss-lint-html-reporter --nohtml --teamcity
 ```
