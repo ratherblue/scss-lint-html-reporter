@@ -1,7 +1,11 @@
+scss_files: 'test/fixtures/*.scss'
+
+exclude: 'node_modules/**'
+
 linters:
   Indentation:
     enabled: true
-    width: 4
+    width: 2
   DuplicateProperty:
     enabled: true
     severity: error
