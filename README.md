@@ -52,7 +52,6 @@ Specify the output of the HTML report. (Defaults to `scss-lint-report.html`)
 
 ```sh
 scss-lint -f JSON | node node_modules/scss-lint-html-reporter/bin/reporter.js -o my-report.html
-
 ```
 
 
@@ -62,7 +61,6 @@ Turns off detailed output.
 
 ```sh
 scss-lint -f JSON | node node_modules/scss-lint-html-reporter/bin/reporter.js --lite
-
 ```
 
 **--teamcity**
@@ -73,14 +71,12 @@ Example:
 
 ```sh
 scss-lint -f JSON | node node_modules/scss-lint-html-reporter/bin/reporter.js --teamcity
-
 ```
 
 With "lite" html file:
 
 ```sh
 scss-lint -f JSON | node node_modules/scss-lint-html-reporter/bin/reporter.js --teamcity --lite
-
 ```
 
 **--nohtml**
