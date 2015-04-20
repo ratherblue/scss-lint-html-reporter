@@ -168,6 +168,9 @@ function LintReporter(jsonOutput) {
 
     hairballs.files.sort(hairballs.sortErrors);
 
+    hairballs.errorOccurances.sort(hairballs.sortOccurances);
+    hairballs.warningOccurances.sort(hairballs.sortOccurances);
+
     return {
       fileSummary: hairballs.fileSummary,
       alertSummary: hairballs.alertSummary,

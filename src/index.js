@@ -16,7 +16,6 @@ process.stdin.on('data', function(chunk) {
 
 process.stdin.on('end', function() {
   var lintReporter = new LintReporter(input);
-
   var data = lintReporter.runReport();
 
   if (lintReporter.generateHtml) {
