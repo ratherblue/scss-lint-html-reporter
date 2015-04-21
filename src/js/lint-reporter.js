@@ -8,7 +8,7 @@ var TeamCityLogger = require('hairballs').TeamCityLogger;
 var hairballs = require('hairballs');
 
 
-function LintReporter(jsonOutput) {
+function LintReporter() {
 
   /**
    * Returns array of files linted
@@ -78,12 +78,9 @@ function LintReporter(jsonOutput) {
    */
   this.summarizeData = function(data) {
 
-    var teamCityLogger = new TeamCityLogger('SCSS Lint');
-    teamCityLogger.reportStart();
-
     for (var fileName in data) {
 
-      teamCityLogger.testStart(fileName);
+      this.teamCityLogger.testStart(fileName);
 
       var file = { path: fileName, errors: 0, warnings: 0, messages: [], errorList: [] };
       var alerts = data[fileName];
@@ -94,10 +91,10 @@ function LintReporter(jsonOutput) {
       }
 
       if (file.errorList.length) {
-        teamCityLogger.testFailed(fileName, file.errorList);
+        this.teamCityLogger.testFailed(fileName, file.errorList);
       }
 
-      teamCityLogger.testEnd(fileName);
+      this.teamCityLogger.testEnd(fileName);
       hairballs.updateFileSummary(file);
 
       // remove messages so that handlebars doesn't print links in the report
@@ -105,13 +102,6 @@ function LintReporter(jsonOutput) {
       if (!this.fullReport) {
         file.messages = null;
       }
-    }
-
-    teamCityLogger.reportEnd();
-
-    // output team city report to the console
-    if (this.useTeamCityReport) {
-      console.log(teamCityLogger.reportOutput.join('\n'));
     }
   };
 
@@ -121,15 +111,20 @@ function LintReporter(jsonOutput) {
    * @returns {object} - Valid JSON Object
    */
   this.fixJSON = function(jsonString) {
-    if (!jsonString) {
-      return '';
+    try {
+      jsonString = jsonString
+        .replace(/\n/g, '')
+        .replace(/\r/g, '');
+
+      var jsonObject = JSON.parse(jsonString);
+
+      return jsonObject;
+
+    } catch(err) {
+      this.teamCityLogger.logMessage('SCSS Lint Error', 'An error occured parsing the lint results', 'ERROR');
+
+      console.log('An error occured parsing the JSON: ' + err);
     }
-
-    jsonString = jsonString
-      .replace(/\n/g, '')
-      .replace(/\r/g, '');
-
-    return JSON.parse(jsonString);
   };
 
   /**
@@ -160,16 +155,27 @@ function LintReporter(jsonOutput) {
    * Starts the Linting Report
    * @returns {object} - Object used to send to template for parsing
    */
-  this.runReport = function() {
-    var data = this.fixJSON(jsonOutput);
+  this.runReport = function(jsonOutput) {
+
+    this.teamCityLogger.reportStart();
 
     this.checkParameters();
+
+    var data = this.fixJSON(jsonOutput);
+
     this.summarizeData(data);
 
     hairballs.files.sort(hairballs.sortErrors);
 
     hairballs.errorOccurances.sort(hairballs.sortOccurances);
     hairballs.warningOccurances.sort(hairballs.sortOccurances);
+
+    this.teamCityLogger.reportEnd();
+
+    // output team city report to the console
+    if (this.useTeamCityReport) {
+      console.log(this.teamCityLogger.reportOutput.join('\n'));
+    }
 
     return {
       fileSummary: hairballs.fileSummary,
@@ -188,6 +194,7 @@ function LintReporter(jsonOutput) {
   this.fullReport = true;
   this.useTeamCityReport = false;
   this.outputPath = 'scss-lint-report.html';
+  this.teamCityLogger = new TeamCityLogger('SCSS Lint');
   this.ruleUrl = 'https://github.com/brigade/scss-lint/blob/master/lib/scss_lint/linter/README.md#';
 }
 
