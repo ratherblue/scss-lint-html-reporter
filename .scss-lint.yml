@@ -1,6 +1,4 @@
-scss_files: 'test/fixtures/*.scss'
-
-exclude: 'node_modules/**'
+scss_files: 'test/fixtures/scss/*.scss'
 
 linters:
   Indentation:
