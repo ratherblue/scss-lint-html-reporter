@@ -12,5 +12,5 @@ rules:
   space-after-keywords: [2, "always"]
   space-before-blocks: [2, "always"]
   space-in-parens: [2, "never"]
-  strict: [2, "never"]
+  strict: [2, "always"]
   no-loop-func: [0]
