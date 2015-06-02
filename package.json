@@ -30,7 +30,7 @@
   },
   "homepage": "https://github.com/edendramis/scss-lint-html-reporter",
   "dependencies": {
-    "hairballs": "0.0.6"
+    "hairballs": "0.0.7"
   },
   "devDependencies": {
     "chai": "^2.2.0",
