@@ -1,6 +1,6 @@
 {
   "name": "scss-lint-html-reporter",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "SCSS Lint HTML Reporter with optional TeamCity integration",
   "main": "./src/index.js",
   "bin": "./bin/reporter.js",
