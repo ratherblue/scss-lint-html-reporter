@@ -1,6 +1,14 @@
 # SCSS Lint HTML Reporter
 Reporter to go along with [SCSS Lint](https://github.com/brigade/scss-lint).
 
+
+[![Build Status](https://img.shields.io/travis/ratherblue/scss-lint-html-reporter.svg?style=flat-square)](https://travis-ci.org/ratherblue/scss-lint-html-reporter)
+[![Coverage Status](https://img.shields.io/coveralls/ratherblue/scss-lint-html-reporter.svg?style=flat-square)](https://coveralls.io/r/ratherblue/scss-lint-html-reporter)
+[![License](https://img.shields.io/github/license/ratherblue/scss-lint-html-reporter.svg?style=flat-square)](https://github.com/ratherblue/scss-lint-html-reporter/blob/master/LICENSE)
+[![Dependencies](https://img.shields.io/david/ratherblue/scss-lint-html-reporter.svg?style=flat-square)](https://david-dm.org/ratherblue/scss-lint-html-reporter)
+[![devDependency Status](https://img.shields.io/david/dev/ratherblue/scss-lint-html-reporter.svg?style=flat-square)](https://david-dm.org/ratherblue/scss-lint-html-reporter#info=devDependencies&view=table)
+
+
 ## Features:
 
 ### HTML Report
