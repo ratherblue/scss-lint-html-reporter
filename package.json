@@ -30,7 +30,7 @@
   },
   "homepage": "https://github.com/ratherblue/scss-lint-html-reporter",
   "dependencies": {
-    "hairballs": "0.1.0"
+    "hairballs": "0.2.0"
   },
   "devDependencies": {
     "chai": "3.5.0",
