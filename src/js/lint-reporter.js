@@ -120,9 +120,9 @@ function LintReporter() {
       return jsonObject;
 
     } catch(err) {
-      this.teamCityLogger.logMessage('SCSS Lint Error', 'An error occured parsing the lint results', 'ERROR');
+      this.teamCityLogger.logMessage('SCSS Lint Error', 'An error occurred parsing the lint results', 'ERROR');
 
-      console.log('An error occured parsing the JSON: ' + err);
+      console.log('An error occurred parsing the JSON: ' + err);
     }
   };
 
@@ -166,8 +166,8 @@ function LintReporter() {
 
     hairballs.files.sort(hairballs.sortErrors);
 
-    hairballs.errorOccurances.sort(hairballs.sortOccurances);
-    hairballs.warningOccurances.sort(hairballs.sortOccurances);
+    hairballs.errorOccurrences.sort(hairballs.sortOccurrences);
+    hairballs.warningOccurrences.sort(hairballs.sortOccurrences);
 
     this.teamCityLogger.reportEnd();
 
@@ -181,8 +181,8 @@ function LintReporter() {
       alertSummary: hairballs.alertSummary,
       files: hairballs.files,
       fullReport: this.fullReport,
-      errorOccurances: hairballs.errorOccurances,
-      warningOccurances: hairballs.warningOccurances,
+      errorOccurrences: hairballs.errorOccurrences,
+      warningOccurrences: hairballs.warningOccurrences,
       pageTitle: 'SCSS Lint Results' + (this.fullReport ? '' : ' (lite)')
     };
   };
